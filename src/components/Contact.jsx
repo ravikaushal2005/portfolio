@@ -10,6 +10,7 @@ import { slideIn } from "../utils/motion";
 
 const Contact = () => {
   const formRef = useRef();
+
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -18,9 +19,9 @@ const Contact = () => {
 
   const [loading, setLoading] = useState(false);
 
+  // Handle Input Change
   const handleChange = (e) => {
-    const { target } = e;
-    const { name, value } = target;
+    const { name, value } = e.target;
 
     setForm({
       ...form,
@@ -28,27 +29,29 @@ const Contact = () => {
     });
   };
 
+  // Handle Submit
   const handleSubmit = (e) => {
     e.preventDefault();
     setLoading(true);
 
     emailjs
       .send(
-        import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
+        "service_33dt99d" ,
+       "template_ki0htok" ,
         {
           from_name: form.name,
-          to_name: "RaviKaushal",
+          to_name: "Ravi Kaushal",
           from_email: form.email,
-          to_email: "",
+          to_email: "ravikaushal7284@gmail.com", // ✅ FIXED
           message: form.message,
         },
-        import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
+      "SYjzensbfpdxCg1mJ"
+
       )
       .then(
         () => {
           setLoading(false);
-          alert("Thank you. I will get back to you as soon as possible.");
+          alert("✅ Message sent successfully!");
 
           setForm({
             name: "",
@@ -59,14 +62,14 @@ const Contact = () => {
         (error) => {
           setLoading(false);
           console.error(error);
-
-          alert("Ahh, something went wrong. Please try again.");
+          alert("❌ Something went wrong. Try again!");
         }
       );
   };
 
   return (
     <div className="xl:mt-12 flex xl:flex-row flex-col-reverse gap-10 overflow-hidden">
+      
       {/* Contact Form */}
       <motion.div
         variants={slideIn("left", "tween", 0.2, 1)}
@@ -80,89 +83,65 @@ const Contact = () => {
           onSubmit={handleSubmit}
           className="mt-12 flex flex-col gap-8"
         >
-          <label className="flex flex-col">
-            <span className="text-white font-medium mb-4">Your Name</span>
-            <input
-              type="text"
-              name="name"
-              value={form.name}
-              onChange={handleChange}
-              placeholder="What's your good name?"
-              className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium"
-            />
-          </label>
+          {/* Name */}
+          <input
+            type="text"
+            name="name"
+            value={form.name}
+            onChange={handleChange}
+            placeholder="Your Name"
+            className="bg-tertiary py-4 px-6 text-white rounded-lg outline-none"
+            required
+          />
 
-          <label className="flex flex-col">
-            <span className="text-white font-medium mb-4">Your Email</span>
-            <input
-              type="email"
-              name="email"
-              value={form.email}
-              onChange={handleChange}
-              placeholder="What's your web address?"
-              className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium"
-            />
-          </label>
+          {/* Email */}
+          <input
+            type="email"
+            name="email"
+            value={form.email}
+            onChange={handleChange}
+            placeholder="Your Email"
+            className="bg-tertiary py-4 px-6 text-white rounded-lg outline-none"
+            required
+          />
 
-          <label className="flex flex-col">
-            <span className="text-white font-medium mb-4">Your Message</span>
-            <textarea
-              rows={7}
-              name="message"
-              value={form.message}
-              onChange={handleChange}
-              placeholder="What you want to say?"
-              className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium"
-            />
-          </label>
+          {/* Message */}
+          <textarea
+            rows={6}
+            name="message"
+            value={form.message}
+            onChange={handleChange}
+            placeholder="Your Message"
+            className="bg-tertiary py-4 px-6 text-white rounded-lg outline-none"
+            required
+          />
 
+          {/* Button */}
           <button
             type="submit"
-            className="bg-tertiary py-3 px-8 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-primary"
+            className="bg-tertiary py-3 px-8 rounded-xl text-white font-bold"
           >
             {loading ? "Sending..." : "Send"}
           </button>
         </form>
 
         {/* Social Icons */}
-        <div className="mt-8 flex gap-6">
-          <a
-            href="https://www.linkedin.com/in/ravi-kaushal-697a7732b"
-            target="_blank"
-            rel="noreferrer"
-            className="text-white text-2xl hover:text-blue-500 transition"
-          >
+        <div className="mt-8 flex gap-6 text-2xl text-white">
+          <a href="https://www.linkedin.com/in/ravi-kaushal-697a7732b" target="_blank" rel="noreferrer">
             <FaLinkedin />
           </a>
-          <a
-            href="https://github.com/ravikaushal2005"
-            target="_blank"
-            rel="noreferrer"
-            className="text-white text-2xl hover:text-gray-400 transition"
-          >
+
+          <a href="https://github.com/ravikaushal2005" target="_blank" rel="noreferrer">
             <FaGithub />
           </a>
-          <a
-            href="https://instagram.com/ravikaushal_18_"
-            target="_blank"
-            rel="noreferrer"
-            className="text-white text-2xl hover:text-pink-500 transition"
-          >
+
+          <a href="https://instagram.com/ravikaushal_18_" target="_blank" rel="noreferrer">
             <FaInstagram />
           </a>
-       
 
-
-<a
-  href="https://wa.me/917543074709"
-  target="_blank"
-  rel="noreferrer"
-  className="text-white text-2xl hover:text-green-500 transition"
->
-  <FaWhatsapp />
-</a>
-
-       
+          <a href="https://wa.me/917543074709" target="_blank" rel="noreferrer">
+            <FaWhatsapp />
+          </a>
         </div>
       </motion.div>
 

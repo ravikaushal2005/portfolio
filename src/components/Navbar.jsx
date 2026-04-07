@@ -42,10 +42,22 @@ const Navbar = () => {
             window.scrollTo(0, 0);
           }}
         >
-          <img src={logo} alt='logo' className='w-9 h-9 object-contain' />
-          <p className='text-white text-[18px] font-bold cursor-pointer flex '>
+          <img src={logo} alt='logo' className='w-12 h-12 object-contain' />
+         <p className='
+font-["Cinzel"] 
+text-[28px] 
+font-extrabold 
+bg-gradient-to-r from-yellow-300 via-amber-400 to-yellow-600 
+bg-clip-text text-transparent 
+tracking-wider 
+cursor-pointer 
+flex 
+hover:scale-105 
+transition duration-300'>
+ 
+
            Ravi  &nbsp;
-            <span className='sm:block hidden'> | -- |</span>
+            <span className='sm:block hidden'> </span>
           </p>
         </Link>
 
