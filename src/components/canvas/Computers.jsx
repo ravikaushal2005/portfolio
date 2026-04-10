@@ -63,10 +63,10 @@ const ComputersCanvas = () => {
     src="/preview.png"
     alt="Computer Preview"
     style={{
-      marginTop: "350px",   // 🔥 intro ke niche gap
+      marginTop: "300px",   // 🔥 intro ke niche gap
       width: "85%",
       maxWidth: "500px",
-      height: "300px",
+      height: "auto",
       borderRadius: "10px",
       boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
     }
