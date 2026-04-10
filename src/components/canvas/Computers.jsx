@@ -45,13 +45,34 @@ const ComputersCanvas = () => {
   // 🔥 MOBILE FIX: 3D REMOVE
   if (isMobile) {
     return (
-      <div style={{ textAlign: "center" }}>
-        <img
-          src="/preview.png"  // 👉 apna lightweight image lagao
-          alt="Computer Preview"
-          style={{ width: "100%", maxWidth: "300px", margintop: "50px", alignItems: "center" }}
-        />
-      </div>
+    <div
+  style={{
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    paddingTop: "100px", // navbar ke niche
+    textAlign: "center",
+  }}
+>
+ 
+
+
+  {/* 🔥 Image (Intro ke niche) */}
+  <img
+    src="/preview.png"
+    alt="Computer Preview"
+    style={{
+      marginTop: "350px",   // 🔥 intro ke niche gap
+      width: "85%",
+      maxWidth: "500px",
+      height: "300px",
+      borderRadius: "10px",
+      boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
+    }
+  }
+  />  
+</div>
     );
   }
 
