@@ -49,7 +49,7 @@ const ComputersCanvas = () => {
         <img
           src="/preview.png"  // 👉 apna lightweight image lagao
           alt="Computer Preview"
-          style={{ width: "100%", maxWidth: "300px" }}
+          style={{ width: "100%", maxWidth: "300px", margintop: "50px", alignItems: "center" }}
         />
       </div>
     );
