@@ -48,7 +48,7 @@ const ComputersCanvas = () => {
       <div style={{ textAlign: "center" }}>
         <img
           src="/preview.png"  // 👉 apna lightweight image lagao
-          alt="preview"
+          alt="Computer Preview"
           style={{ width: "100%", maxWidth: "300px" }}
         />
       </div>
