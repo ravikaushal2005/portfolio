@@ -257,6 +257,26 @@ description: "Web-based platform that allows users to search, order, and manage 
     image: carrent,
     source_code_link: "https://github.com/ravikaushal2005/Foodio",
   },
+   {
+ name: "book store",
+description: "A web application that allows users to browse, search, and purchase books online, providing a convenient and user-friendly platform for book lovers.",
+    tags: [
+      {
+        name: "react",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "mysql",
+        color: "green-text-gradient",
+      },
+      {
+        name: "tailwind",
+        color: "pink-text-gradient",
+      },
+    ],
+    image: jobit,
+    source_code_link: "https://github.com/ravikaushal2005/book-store",
+  },
 
   {
     name: "Trip Guide",
