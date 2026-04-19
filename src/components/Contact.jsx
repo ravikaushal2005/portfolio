@@ -12,14 +12,14 @@ const Contact = () => {
   const formRef = useRef();
 
   const [form, setForm] = useState({
-    name: "",
-    email: "",
+    from_name: "",
+    from_email: "",
     message: "",
   });
 
   const [loading, setLoading] = useState(false);
 
-  // Handle Input Change
+  // ✅ Handle Input Change
   const handleChange = (e) => {
     const { name, value } = e.target;
 
@@ -29,24 +29,19 @@ const Contact = () => {
     });
   };
 
-  // Handle Submit
+  // ✅ Handle Submit
   const handleSubmit = (e) => {
     e.preventDefault();
     setLoading(true);
 
+    console.log(form); // 🔥 Debug check
+
     emailjs
       .send(
-        "service_33dt99d" ,
-       "template_ki0htok" ,
-        {
-          from_name: form.name,
-          to_name: "Ravi Kaushal",
-          from_email: form.email,
-          to_email: "ravikaushal7284@gmail.com", // ✅ FIXED
-          message: form.message,
-        },
-      "SYjzensbfpdxCg1mJ"
-
+        "service_33dt99d",
+        "template_ki0htok",
+        form, // ✅ Direct form object pass
+        "SYjzensbfpdxCg1mJ"
       )
       .then(
         () => {
@@ -54,22 +49,22 @@ const Contact = () => {
           alert("✅ Message sent successfully!");
 
           setForm({
-            name: "",
-            email: "",
+            from_name: "",
+            from_email: "",
             message: "",
           });
         },
         (error) => {
           setLoading(false);
           console.error(error);
-          alert("❌ Something went wrong. Try again!");
+          alert("❌ Something went wrong!");
         }
       );
   };
 
   return (
-    <div className="xl:mt-12 flex xl:flex-row flex-col-reverse gap-10 overflow-hidden">
-      
+    <div className="xl:mt-12 flex xl:flex-row flex-col-reverse gap-10">
+
       {/* Contact Form */}
       <motion.div
         variants={slideIn("left", "tween", 0.2, 1)}
@@ -86,8 +81,8 @@ const Contact = () => {
           {/* Name */}
           <input
             type="text"
-            name="name"
-            value={form.name}
+            name="from_name"
+            value={form.from_name}
             onChange={handleChange}
             placeholder="Your Name"
             className="bg-tertiary py-4 px-6 text-white rounded-lg outline-none"
@@ -97,8 +92,8 @@ const Contact = () => {
           {/* Email */}
           <input
             type="email"
-            name="email"
-            value={form.email}
+            name="from_email"
+            value={form.from_email}
             onChange={handleChange}
             placeholder="Your Email"
             className="bg-tertiary py-4 px-6 text-white rounded-lg outline-none"
